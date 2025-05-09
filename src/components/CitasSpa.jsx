@@ -120,7 +120,14 @@ const CitasSpa = () => {
             <div>
               <p><strong>Fecha:</strong> {cita.fecha} <strong>Hora:</strong> {cita.hora}</p>
               <p><strong>Clienta:</strong> {cita.clienta}</p>
-              <p><strong>Servicios:</strong> {cita.servicio.split(",").join(", ")}</p> {/* Mostrar servicios separados por coma */}
+              <div>
+  <strong>Servicios:</strong>
+  <ul>
+    {cita.servicio.split(",").map((s, i) => (
+      <li key={i}>{s.trim()}</li>
+    ))}
+  </ul>
+</div>
               <p><strong>Precio:</strong> ${cita.precio}</p>
               <p><strong>Estado:</strong> <span className={cita.estado === "terminada" ? "estado-terminada" : "estado-pendiente"}>{cita.estado}</span></p>
             </div>
